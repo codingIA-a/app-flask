@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Registro</h1>
+    {% if errores %}
+    <ul style="color: red;">
+        {% for error in errores %}
+            <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <form action="/crear_usuario" method="post">
+        <label for="nombre">Nombre</label><br>
+        <input type="text" name="nombre"><br>
+        <label for="apellido">Apellido</label><br>
+        <input type="text" name="apellido"><br>
+        <label for="email">Email</label><br>
+        <input type="email" name="email"><br>
+        <label for="edad">Edad</label><br>
+        <input type="number" name="edad" min="18"><br>
+        <label for="fecha_nacimiento">Fecha de nacimiento</label><br>
+        <input type="date" name="fecha_nacimiento"><br>
+        <label for="contrasena">Contraseña</label><br>
+        <input type="password" name="contrasena"><br>
+        <button>Registrarse</button>
+    </form>
+    <h3>¿Tienes una cuenta?</h3>
+    <a href="{{url_for('formulario_login')}}">Iniciar Sesión</a>
+</body>
+</html>
